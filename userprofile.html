@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile - CSBOGOTA</title>
+    <link rel="stylesheet" href="./stylesuserprofile.css">
+</head>
+<body>
+    
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <a href="index.html">
+                    <img src="C:\Users\pc\Documents\PAGINA WEB CSBOGOTA\Logo 2024 adaptado.png" alt="CSBOGOTA Logo">
+                </a>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="mainpage.html">Products</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="userprofile.html">Profile</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+  
+    <main class="main-content">
+        <div class="container">
+            <section class="user-profile">
+                <h1>User Profile</h1>
+                
+             
+                <div class="user-info">
+                    <h2>Profile Information</h2>
+                    <div class="info">
+                        <div class="profile-picture">
+                            <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Profile Picture" id="profile-img">
+                            <input type="file" id="upload-avatar" accept="image/*">
+                        </div>
+                        <div class="details">
+                            <p><strong>Username:</strong> tiago123</p>
+                            <p><strong>Email:</strong> tiago123@mail.com</p>
+                            <button class="edit-profile">Edit Profile</button>
+                        </div>
+                    </div>
+                </div>
+
+               
+                <div class="change-password">
+                    <h2>Change Password</h2>
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <label for="current-password">Current Password:</label>
+                            <input type="password" id="current-password" name="current-password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="new-password">New Password:</label>
+                            <input type="password" id="new-password" name="new-password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-password">Confirm New Password:</label>
+                            <input type="password" id="confirm-password" name="confirm-password" required>
+                        </div>
+                        <button type="submit" class="change-password-btn">Change Password</button>
+                    </form>
+                </div>
+
+               
+                <div class="logout-section">
+                    <button class="logout-btn">Logout</button>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 CSBOGOTA. All Rights Reserved.</p>
+            <p>
+                <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
