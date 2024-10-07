@@ -20,10 +20,10 @@ class Product {
 
     }
 
-    htmlCard(){
+    htmlCard(pos){
         return `
-        <div class="item">
-            <a href="./productdetails.html"> 
+        <div class="item" onclick ="productSelected(${pos})">
+             
             <img src="${this.image}" alt="Item Image"></a>
             <h3>${this.title}</h3>
             <p>${this.type}</p>

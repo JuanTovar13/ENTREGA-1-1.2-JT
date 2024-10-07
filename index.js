@@ -12,8 +12,13 @@ function renderAllProducts () {
     let container = document.getElementById("item-list")
     for(let i = 0; i < products.length; i++){
         let product = products [i]
-        container.innerHTML += product.htmlCard()
+        container.innerHTML += product.htmlCard(i)
     }
+}
+
+function productSelected(pos) {
+    let productSelected = products [pos]
+    window.location = "./productdetails.html?name=" + productSelected.title
 }
 
 parseDataToProducts()
