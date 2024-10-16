@@ -1,5 +1,5 @@
 const params = new URLSearchParams (window.location.search)
-const nameFromUrl = params.get('name')
+const nameFromUrl = params.get("name")
 
 function getProduct() {
     for(let i = 0; i < data.length; i++){

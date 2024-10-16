@@ -30,7 +30,7 @@
         <div class="container">
             <div class="login-box">
                 <h2>Login</h2>
-                <form action="dashboard.html" method="POST">
+                
                     <div class="form-group">
                         <label for="email">E-mail</label>
                         <input type="email" id="email" name="email" required>
@@ -39,8 +39,8 @@
                         <label for="password">Password</label>
                         <input type="password" id="password" name="password" required>
                     </div>
-                    <button type="submit" class="login-button">Login</button>
-                </form>
+                    <button onclick="login()" class="login-button">Login</button>
+               
                 <p class="register-link">¿Don't have an account? <a href="register.html">Register here</a>.</p>
             </div>
         </div>
@@ -55,5 +55,6 @@
     </div>
 </footer>
 
+<script src="./login.js"></script>
 </body>
 </html>
