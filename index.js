@@ -23,3 +23,7 @@ function productSelected(pos) {
 
 parseDataToProducts()
 renderAllProducts() 
+
+
+
+
