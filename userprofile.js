@@ -2,7 +2,7 @@ window.onload = function() {
    
     const fullName = localStorage.getItem('fullName');
     const email = localStorage.getItem('email');
-    const profileImage = localStorage.getItem('profileImage') || 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
+    const profileImage = localStorage.getItem(img) || 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
 
    
     document.querySelector('.details p strong').textContent = "User: " + fullName; 

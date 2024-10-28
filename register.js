@@ -1,14 +1,23 @@
 function register() {
-    let fullName = document.getElementById("full-name").value;
-    let email = document.getElementById("email").value;
-    let password = document.getElementById("password").value;
+    let fullName = document.getElementById("full-name").value
+    let email = document.getElementById("email").value
+    let password = document.getElementById("password").value
+    let confirmPassword = document.getElementById("confirm-password").value
+    
+   
 
   
-    localStorage.setItem('fullName', fullName);
-    localStorage.setItem('email', email);
-    localStorage.setItem('password', password);
-    localStorage.setItem('profileImage', ''); 
+    localStorage.setItem('userEmail', email)
+    localStorage.setItem('userPassword', password)
+    localStorage.setItem('userName', fullName)
+    localStorage.setItem('profileImage', img)
 
     
-    window.location.href = "mainpage.html";
+    if (password === confirmPassword) {
+        window.location = "./mainpage.html"
+    } else {
+        alert("Las contraseñas no coinciden")
+        return
+    }
 }
+

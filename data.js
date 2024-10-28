@@ -179,3 +179,6 @@ let p10 = {
 }
 
 let data = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10]
+
+let p1json = JSON.stringify(p1)
+localStorage.setItem("user",p1json)
