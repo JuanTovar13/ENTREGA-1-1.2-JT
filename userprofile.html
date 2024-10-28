@@ -39,13 +39,15 @@
                     <div class="info">
                         <div class="profile-picture">
                             <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Profile Picture" id="profile-img">
-                            <input type="file" id="upload-avatar" accept="image/*">
+                            <input type="file" id="upload-avatar" accept="image/*" onchange="previewImage(event)">
                         </div>
+                        
                         <div class="details">
-                            <p><strong>Username:</strong> tiago123</p>
-                            <p><strong>Email:</strong> tiago123@mail.com</p>
-                            <button class="edit-profile">Edit Profile</button>
+                            <p><strong>Username:</strong> <span id="username-display"></span></p>
+                            <p><strong>Email:</strong> <span id="email-display"></span></p>
+                            <button class="edit-profile" onclick="enableEdit()">Edit Profile</button>
                         </div>
+                        
                     </div>
                 </div>
 
@@ -71,7 +73,7 @@
 
                
                 <div class="logout-section">
-                    <button  class="logout-btn">Logout</button>
+                    <button href="Login.html" class="logout-btn">Logout</button>
                 </div>
             </section>
         </div>
@@ -86,5 +88,6 @@
             </p>
         </div>
     </footer>
+    <script src="./userprofile.js"></script>
 </body>
 </html>
