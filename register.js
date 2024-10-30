@@ -10,7 +10,7 @@ function register() {
     localStorage.setItem('userEmail', email)
     localStorage.setItem('userPassword', password)
     localStorage.setItem('userName', fullName)
-    localStorage.setItem('profileImage', img)
+    
 
     
     if (password === confirmPassword) {
@@ -19,5 +19,6 @@ function register() {
         alert("Las contraseñas no coinciden")
         return
     }
+    window.location.href = "login.html";
 }
 
