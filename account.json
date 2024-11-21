@@ -1,0 +1,8 @@
+{
+    "email@example.com": {
+      "name": "John Doe",
+      "password": "hashed_password",
+      "favorites": []
+    }
+  }
+  
