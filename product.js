@@ -1,67 +1,37 @@
-class Product {
-    constructor(id, name, title, type, price, resolution, zoom, distance, ram, image, processor, system, channels, input, size, category){
-        this.id = id
-        this.name = name
-        this.title = title
-        this.type = type
-        this.price = price
-        this.resolution = resolution
-        this.zoom = zoom
-        this.distance = distance
-        this.ram = ram
-        this.image = image
-        this.processor = processor
-        this.system = system
-        this.channels = channels 
-        this.input = input
-        this.size = size
-        this.category = category 
-        
 
+class Product {
+    constructor(id, name, title, type, price, resolution, zoom, distance, ram, image, processor, system, channels, input, size, category) {
+        this.id = id;
+        this.name = name;
+        this.title = title;
+        this.type = type;
+        this.price = price;
+        this.resolution = resolution;
+        this.zoom = zoom;
+        this.distance = distance;
+        this.ram = ram;
+        this.image = image;
+        this.processor = processor;
+        this.system = system;
+        this.channels = channels;
+        this.input = input;
+        this.size = size;
+        this.category = category;
     }
 
-
-  
-
-    htmlCard(pos){
-        return ` 
-        <div class="item" onclick ="productSelected(${pos})">
-             
-            <img src="${this.image}" alt="Item Image"></a>
+    htmlCard(pos) {
+        return `
+        <div class="item" onclick="productSelected(${pos})">
+            <img src="${this.image}" alt="Product Image">
             <h3>${this.title}</h3>
             <p>${this.type}</p>
         </div>
         `
     }
-    
-}
 
-class Favorite {
-    constructor(id, name, title, type, price, resolution, zoom, distance, ram, image, processor, system, channels, input, size, category){
-        this.id = id
-        this.name = name
-        this.title = title
-        this.type = type
-        this.price = price
-        this.resolution = resolution
-        this.zoom = zoom
-        this.distance = distance
-        this.ram = ram
-        this.image = image
-        this.processor = processor
-        this.system = system
-        this.channels = channels 
-        this.input = input
-        this.size = size
-        this.category = category 
-        
-
-    }
-
-
-    htmlCard(fav){
+    htmlCardfav(pos){
         return `
-        <div class="item" onclick ="productSelected(${fav})">
+        <div class="item" onclick ="productSelected(${pos})">
              
             <img src="${this.image}" alt="Item Image"></a>
             <h3>${this.title}</h3>
@@ -72,47 +42,4 @@ class Favorite {
     }
 
 }
-
-class Land {
-    constructor(id, name, title, type, price, resolution, zoom, distance, ram, image, processor, system, channels, input, size, category){
-        this.id = id
-        this.name = name
-        this.title = title
-        this.type = type
-        this.price = price
-        this.resolution = resolution
-        this.zoom = zoom
-        this.distance = distance
-        this.ram = ram
-        this.image = image
-        this.processor = processor
-        this.system = system
-        this.channels = channels 
-        this.input = input
-        this.size = size
-        this.category = category 
-        
-
-    }
-
-
-    htmlCard(){
-        return `
-        <div class="item" >
-             
-            <a href="login.html">
-				<img src="${this.image}" alt="Item Image">
-			</a>
-            <h3>${this.title}</h3>
-            <p>${this.type}</p>
-            
-        </div>
-        `
-    }
-
-}
-
-
-
-
 

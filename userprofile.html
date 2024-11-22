@@ -39,13 +39,16 @@
                     <div class="info">
                         <div class="profile-picture">
                             <img src="https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png" alt="Profile Picture" id="profile-img">
-                            <input type="file" id="upload-avatar" accept="image/*" onchange="previewImage(event)">
+                            <input class="profileBtn" type="file" id="upload-avatar" accept="image/*">
                         </div>
                         
+                        
                         <div class="details">
-                            <p><strong>Username:</strong> <span id="username-display"></span></p>
+                            <p><strong>Username: </strong> <span id="username-display"></span></p>
+                            
                             <p><strong>Email:</strong> <span id="email-display"></span></p>
-                            <button class="edit-profile" onclick="enableEdit()">Edit Profile</button>
+                           
+                            <button class="edit-profile" id="edit-profile" onclick="enableEdit()">Edit Profile</button>
                         </div>
                         
                     </div>
@@ -57,15 +60,15 @@
                     <form action="#" method="post">
                         <div class="form-group">
                             <label for="current-password">Current Password:</label>
-                            <input type="password" id="current-password" name="current-password" required>
+                            <input type="password" id="current-password" class="current-password" required>
                         </div>
                         <div class="form-group">
                             <label for="new-password">New Password:</label>
-                            <input type="password" id="new-password" name="new-password" required>
+                            <input type="password" id="new-password" class="new-password" required>
                         </div>
                         <div class="form-group">
                             <label for="confirm-password">Confirm New Password:</label>
-                            <input type="password" id="confirm-password" name="confirm-password" required>
+                            <input type="password" id="confirm-password" class="confirm-password" required>
                         </div>
                         <button type="submit" class="change-password-btn">Change Password</button>
                     </form>
@@ -89,5 +92,6 @@
         </div>
     </footer>
     <script src="./userprofile.js"></script>
+    <script src="./changepsw.js"></script>
 </body>
 </html>

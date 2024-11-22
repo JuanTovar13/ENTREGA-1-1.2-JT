@@ -1,21 +1,30 @@
 let products = []
 
-function parseDataToProducts() {
-    for(let i = 0 ; i < data.length; i++){
-        let map = data[i]
-        let product = new Land (map["id"], map["name"], map["title"], map["type"], map["price"], map["resolution"], map["zoom"], map["distance"], map[ "ram"], map[ "image"], map[ "processor"], map[ "system"], map[ "channels"], map[ "input"], map[ "size"], map[ "category"])
-        products.push(product)
-    }
+async function getProducts() {
+        let response = await fetch("https://raw.githubusercontent.com/JuanTovar13/json/refs/heads/main/data.json")
+        let data = await response.json()
+
+
+        parseProducts(data)
+    
 }
 
-function renderAllProducts () {
+function parseProducts(data) {
+    for (let i = 6; i < data.length; i++) {
+        let map = data[i]
+        let product = new Product(map["id"],map["category"].name, map["title"],map["type"],map["price"],map["resolution"] || null,map["zoom"] || null,map["distance"] || null,map["ram"] || null,map["image"],map["processor"] || null,map["system"] || null,map["channels"] || null,map["input"] || null,map["size"] || null,map["category"])
+        products.push(product)
+    }
+    renderProducts(products)
+}
+
+function renderProducts(list) {
     let container = document.getElementById("items-list")
-    for(let i = 6; i < products.length; i++){
-        let product = products [i]
+    container.innerHTML = ""
+    for (let i = 0; i < list.length; i++) {
+        let product = list[i]
         container.innerHTML += product.htmlCard(i)
     }
 }
 
-
-parseDataToProducts()
-renderAllProducts() 
+getProducts()

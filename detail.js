@@ -1,109 +1,76 @@
-class Product {
-    constructor(id, name, title, type, price, resolution, zoom, distance, ram, image, processor, system, channels, input, size, category){
-        this.id = id
-        this.name = name
-        this.title = title
-        this.type = type
-        this.price = price
-        this.resolution = resolution
-        this.zoom = zoom
-        this.distance = distance
-        this.ram = ram
-        this.image = image
-        this.processor = processor
-        this.system = system
-        this.channels = channels 
-        this.input = input
-        this.size = size
-        this.category = category 
-        
+const params = new URLSearchParams(window.location.search)
+const nameFromUrl = params.get("name")
 
+async function fetchData() {
+    try {
+        const response = await fetch("https://raw.githubusercontent.com/JuanTovar13/json/refs/heads/main/data.json");
+        const data = await response.json();
+        return data
+    } catch (error) {
+        console.error("Error fetching data:", error)
+        return []
     }
 }
 
-const params = new URLSearchParams(window.location.search);
-const nameFromUrl = params.get("name");
-
-function getProduct() {
-    for (let i = 0; i < data.length; i++) {
-        let map = data[i]
-        let title = map["title"]
-        if (title === nameFromUrl) {
-            let product = new Product(map["id"], map["name"], map["title"], map["type"], map["price"], map["resolution"], map["zoom"], map["distance"], map["ram"], map["image"], map["processor"], map["system"], map["channels"], map["input"], map["size"], map["category"]);
-            return product
+async function getProduct() {
+    const data = await fetchData()
+    for (const item of data) {
+        if (item.title === nameFromUrl) {
+            return item
         }
     }
+    return null; 
 }
 
-function renderProduct() {
-    let product = getProduct();
+async function renderProduct() {
+    const product = await getProduct()
 
-    if (product.title) {
-        let titleH1 = document.getElementById("title")
-        titleH1.innerHTML = product.title
+    if (!product) {
+        console.error("Product not found!")
+        return
     }
 
-    if (product.description) {
-        let descriptionH2 = document.getElementById("description")
-        descriptionH2.innerHTML = product.description
-    }
+    const elements = [
+        { id: "title", value: product.title },
+        { id: "description", value: product.description },
+        { id: "price", value: product.price ? `$${product.price}` : null },
+        { id: "resolution", value: product.resolution },
+        { id: "zoom", value: product.zoom },
+        { id: "distance", value: product.distance },
+        { id: "ram", value: product.ram },
+        { id: "input", value: product.input },
+        { id: "size", value: product.size },
+        { id: "channels", value: product.channels },
+        { id: "processor", value: product.processor },
+        { id: "system", value: product.system }
+    ];
 
-    if (product.price) {
-        let priceP = document.getElementById("price")
-        priceP.innerHTML = "$" + product.price
-    }
-
-    if (product.resolution) {
-        let resolutionP = document.getElementById("resolution")
-        resolutionP.innerHTML = product.resolution
-    }
-
-    if (product.zoom) {
-        let zoomP = document.getElementById("zoom")
-        zoomP.innerHTML = product.zoom
-    }
-
-    if (product.distance) {
-        let distanceP = document.getElementById("distance")
-        distanceP.innerHTML = product.distance
-    }
-
-    if (product.ram) {
-        let ramP = document.getElementById("ram")
-        ramP.innerHTML = product.ram
-    }
-
-    if (product.input) {
-        let inputP = document.getElementById("input")
-        inputP.innerHTML = product.input
-    }
-
-    if (product.size) {
-        let sizeP = document.getElementById("size")
-        sizeP.innerHTML = product.size
-    }
-
-    if (product.channels) {
-        let channelP = document.getElementById("channels")
-        channelP.innerHTML = product.channels
-    }
-
-    if (product.processor) {
-        let processorP = document.getElementById("processor")
-        processorP.innerHTML = product.processor
-    }
-
-    if (product.system) {
-        let systemP = document.getElementById("system")
-        systemP.innerHTML = product.system
-    }
+    elements.forEach(({ id, value }) => {
+        const element = document.getElementById(id)
+        if (element && value) {
+            element.innerHTML = value
+        } else if (element) {
+            element.style.display = "none"
+        }
+    });
 
     if (product.image) {
-        let mainImg = document.getElementById("main-img")
+        const mainImg = document.getElementById("main-img")
         mainImg.src = product.image
     }
 }
 
-renderProduct();
+function addToFavorites() {
+    const favorites = JSON.parse(localStorage.getItem("favorites")) || []
+    const currentProductTitle = document.getElementById("title").innerText
 
+    if (!favorites.some(product => product.title === currentProductTitle)) {
+        favorites.push({ title: currentProductTitle })
+        localStorage.setItem("favorites", JSON.stringify(favorites))
+        alert("Product added to favorites!")
+    } else {
+        alert("Product is already in favorites.")
+    }
+}
 
+renderProduct()
